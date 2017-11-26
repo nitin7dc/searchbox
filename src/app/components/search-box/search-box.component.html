@@ -1,0 +1,47 @@
+<!--
+*********************************************************************************************************************
+ Search Box Component : View
+*********************************************************************************************************************
+-->
+
+<!--Parent Container-->
+<div class="container">
+  <form>
+    <h1>Search Demo</h1>
+
+    <!--search box-->
+    <div class="search-control">
+      <i class="material-icons">search</i>
+      <input type="text"
+             id="search-box"
+             placeholder="search"
+             aria-label="search box"
+             #searchBox
+             (blur)="onBlur()"
+             (focus)="onFocus()"
+             tabindex="0"
+             [formControl]="searchControl">
+      <!--<i class="material-icons"-->
+      <!--(click)="clear()"-->
+      <!--tabindex="1"-->
+      <!--[hidden]="!searchBox.value?.length">-->
+      <!--cancel-->
+      <!--</i>-->
+    </div>
+
+    <!--loading animation for mock api call-->
+    <div class="loader"></div>
+
+
+    <!--list of suggestions-->
+    <ul #suggestionList class="suggestions" [hidden]="!autoSuggestions?.length">
+      <li *ngFor="let suggestion of autoSuggestions; let index = index;"
+          id="list-{{index}}"
+          tabindex="{{index + 1}}"
+          (click)="setValue(suggestion)">
+        <a>{{ suggestion }}</a>
+      </li>
+    </ul>
+  </form>
+</div>
+

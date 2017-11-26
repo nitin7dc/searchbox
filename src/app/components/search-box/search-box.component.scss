@@ -1,0 +1,102 @@
+//*********************************************************************************************************************
+// Search Box Component : Style
+//*********************************************************************************************************************
+
+.container {
+  margin: 10vh 26px 0 26px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+form{
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
+
+.search-control{
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  align-items: center;
+  padding: 0 8px;
+  border: 2px solid;
+  border-radius: 4px;
+}
+
+input {
+  height: 24px;
+  margin: 0 8px;
+  padding: 8px;
+  border: none;
+  line-height: 24px;
+  font-size: medium;
+  min-width: 36vw;
+  outline: none;
+}
+
+i{
+  cursor: pointer;
+}
+
+
+mat-form-field {
+  width: 100%;
+}
+
+.suggestions {
+  margin-top: -4px;
+  border-radius: 4px;
+  min-height: 300px;
+  min-width: 33vw;
+  font-size: medium;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+  list-style-type: none;
+  padding: 0;
+  z-index: 2;
+}
+
+li {
+  cursor: pointer;
+  margin: 0;
+  padding: 8px;
+}
+
+li:hover, li:focus {
+  background: rgba(0,0,0,0.25);
+  outline:none;
+}
+
+
+.loader {
+  height: 4px;
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+  margin-top: 0px;
+  width: 100%;
+}
+
+.loader:before{
+  display: block;
+  position: absolute;
+  content: "";
+  left: -200px;
+  width: 200px;
+  height: 4px;
+  background-color: black;
+  animation: loading 2s linear infinite;
+}
+
+@keyframes loading {
+  from {left: -200px; width: 30%;}
+  50% {width: 30%;}
+  70% {width: 70%;}
+  80% { left: 50%;}
+  95% {left: 120%;}
+  to {left: 100%;}
+}
