@@ -1,8 +1,17 @@
 <!--
 
   Sample Usage of 'app-search-box' component.
-
   Complete code inside './components/search-box' folder.
 
+  Events Handled
+
+  - When user in entering text inside search input box.
+    - on focus/blur event : show/hide auto suggestions list.
+    - on keydown event :
+      tab/down key - first element from auto suggestion list is focused.
+      up /down key - previous/next element from auto suggestion list is focused.
+      enter key : if active element is a list item of auto suggestion list, value will be added to input box.
+
 -->
+
 <app-search-box></app-search-box>
