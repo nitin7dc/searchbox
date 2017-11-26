@@ -34,7 +34,11 @@
 
 
     <!--list of suggestions-->
-    <ul #suggestionList class="suggestions" [hidden]="!autoSuggestions?.length">
+    <ul #suggestionList
+        class="suggestions"
+        appClickOutside
+        (clickOutside)="hideSuggestions($event)"
+        [hidden]="!autoSuggestions?.length">
       <li *ngFor="let suggestion of autoSuggestions; let index = index;"
           id="list-{{index}}"
           tabindex="{{index + 1}}"

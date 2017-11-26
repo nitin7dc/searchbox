@@ -117,6 +117,14 @@ export class SearchBoxComponent implements OnInit {
     this.searchControl.reset();
   }
 
+  /**
+   * Hide auto suggestions on click outside.
+   */
+  hideSuggestions(){
+    this.autoSuggestions = [];
+    console.log('hide auto suggestions.');
+  }
+
   /********************************************************************************************************************
    * Keyboard Events : Handle standard keyboard events.
    *
@@ -128,10 +136,8 @@ export class SearchBoxComponent implements OnInit {
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    console.log(event);
+    // console.log(event);
     const activeElement: any = document.activeElement;
-
-    // event.keyCode = 40 ( Keyboard Down)
     const tabOrDown = (event.keyCode === 9) || (event.keyCode === 40);
     if (activeElement.id === 'search-box' && tabOrDown && this.suggestionList) {
       this.setFocusOn(this.suggestionList.nativeElement.firstElementChild);

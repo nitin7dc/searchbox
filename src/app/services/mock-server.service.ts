@@ -12,15 +12,17 @@ export class MockServerService {
 
 
   getRandomBool(n) {
-    var maxRandomCoeff = 1000;
-    if (n > maxRandomCoeff) n = maxRandomCoeff;
+    const maxRandomCoeff = 1000;
+    if (n > maxRandomCoeff) {
+      n = maxRandomCoeff;
+    }
     return Math.floor(Math.random() * maxRandomCoeff) % n === 0;
   }
 
   getSuggestions(text) {
-    var pre = 'pre';
-    var post = 'post';
-    var results = [];
+    const pre = 'pre';
+    const post = 'post';
+    const results = [];
     if (this.getRandomBool(2)) {
       results.push(pre + text);
     }
@@ -34,7 +36,7 @@ export class MockServerService {
       results.push(pre + text + post);
     }
     return new Promise((resolve, reject) => {
-      var randomTimeout = Math.random() * this.MAX_SERVER_LATENCY;
+      const randomTimeout = Math.random() * this.MAX_SERVER_LATENCY;
       setTimeout(() => {
         if (this.getRandomBool(this.FAILURE_COEFF)) {
           reject();
